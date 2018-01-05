@@ -1,0 +1,92 @@
+Name:LIYAO JIANG
+
+
+Project Title: MineSweeper
+
+Project Description:
+The classic Microsoft Minesweeper game, with same rules.
+Have fun!
+
+
+Game Rule:
+	After first click on a block, 9 mines will be randomly generated.
+	The number appears at a opened block indicates how many bombs
+	are in adjacent blocks. Try to open safe blocks. Flag blocks you think
+	are with bombs. Put a "?" on the block you are not sure about.
+	Lose Condition: Any block with bomb is opened.
+	Win Condition: When all blocks without a bomb are opened.
+
+Special game designs:
+	1,On the left side of screen is a score panel, it shows how many blocks your
+	flagged, and how many "mines" are left based on your flags.
+	2,The timer will start to count your time after first click, and stops
+	when you lose or win.
+	3,The Core algorithm: "fast open", when opening a block, if it is a block
+	with 0 bombs around, then it will automatically open the blocks around it.
+	And if any of the opened 8 adjacent blocks have 0 mines around, then its
+	adjacent blocks will recursively open as well.
+	4,flag block and "?"block.
+	5,All mine will be displayed when lose.
+
+Game Control:
+	At the welcome screen, touch to start a new game.
+	Use the joystick to move cursor to select a block.
+	Use the pushbutton to open a block.
+	Push down the pushbutton to:
+	1, To flag a block.
+	2, If it is already flagged, it will become a questionmarked block.
+	3, If already questionmarked, it will back to original state.
+	At anytime, touch the smiling face at top-right corner to go back to menu.
+	After win, or lose, also touch the face to restart.
+
+List of files needed:
+	Minesweep.cpp
+	Makefile
+
+Running instruction:
+	Connect the Arduino to your computer
+	Use the terminal to navigate to the directory including:
+	Makefile & Minesweep.cpp
+	Use "make upload" command to compile and upload the program to your Arduino
+
+Accessories:
+	* Arduino Mega Board (AMG)
+	* Adafruit ILI934 breakout board
+		(the display, touch screen)
+	* Wires
+	* JOYSTICK
+	* pushbutton
+
+Wiring Instructions:
+
+Wiring of pushbutton used internal pull-up resistor:
+	Connect pin 3 to one one pin of the pushbutton
+	Connect the second pin at the same side to GND
+
+Joystick pins:
+	Analog pin A1 should connect to pin VRx
+	Analog pin A0 should connect to pin VRy
+	Digital pin 2 should connect to pin SW
+
+Display and SD and touch screen follows the standard wiring:
+//copied from 'Wiring for Adafruit ILI9341 File'
+
+Board Pin <---> Arduino Pin
+===========================
+GND             GND
+Vin             5V
+3Vo             NOT CONNECTED
+CLK             52
+MISO            50
+MOSI            51
+CS              10
+D/C             9
+RST             NOT CONNECTED
+Lite            NOT CONNECTED
+Y+              A2 (analog pin)
+X+              4  (digital pin)
+Y-              5  (digital pin)
+X-              A3 (analog pin)
+IM0 - IM3       NOT CONNECTED (they expect a 3.3v signal, DON'T CONNECT!)
+CCS             6
+CD              NOT CONNECTED
